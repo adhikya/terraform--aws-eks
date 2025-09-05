@@ -7,7 +7,6 @@ pipeline {
         REGION = "us-east-1"
         ACC_ID = "384570460420"
         PROJECT = "roboshop"
-        COMPONENT = "catalogue"
      }
     options {
         timeout(time: 30, unit: 'MINUTES') 
@@ -49,11 +48,6 @@ pipeline {
             }
         }
         stage('apply') {
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-            }
             steps {
                 script {
                     withAWS(credentials: 'aws-creds', region: 'us-east-1') {
@@ -105,8 +99,9 @@ pipeline {
                 }
             }
         }
-}
+
         
+    }
 
     post { 
         always { 
