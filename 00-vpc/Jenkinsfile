@@ -65,8 +65,6 @@ pipeline {
                 }
             }
         }
-    
-    }
         // Down stream job
         stage('Trigger SG') {
             steps {
@@ -78,6 +76,7 @@ pipeline {
             }
         }
         
+    }
 
     post { 
         always { 
